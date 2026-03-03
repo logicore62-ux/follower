@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialBoost — Продвижение в соцсетях</title>
+    <meta name="description"
+        content="Быстрая и надёжная накрутка просмотров, лайков, подписчиков и репостов для TikTok, YouTube, Instagram и Telegram.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">
+                <span class="logo__icon">⚡</span>
+                <span class="logo__text">Social<span class="logo__accent">Boost</span></span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#platforms" class="nav__link">Платформы</a>
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#how" class="nav__link">Как это работает</a>
+                <a href="#reviews" class="nav__link">Отзывы</a>
+                <a href="#order" class="nav__link nav__link--cta">Получить</a>
+            </nav>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Order Form -->
+    <section class="hero" id="order">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <div class="hero__badge">🚀 #1 сервис продвижения</div>
+                <h1 class="hero__title">
+                    Продвигаем аккаунты<br>
+                    <span class="hero__title-gradient">в ТОП соцсетей</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Бесплатные просмотры, лайки, подписчики и репосты для TikTok, YouTube, Instagram и Telegram.
+                    Быстро, безопасно, без регистрации.
+                </p>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-count="15000000">0</span>
+                        <span class="hero__stat-label">Выполнено заказов</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-count="98">0</span>
+                        <span class="hero__stat-label">% довольных клиентов</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value" data-count="4">0</span>
+                        <span class="hero__stat-label">Платформы</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__form">
+                <form class="order-form" id="orderForm">
+                    <div class="order-form__header">
+                        <span class="order-form__header-icon">⚡</span>
+                        <span>Получить бесплатно</span>
+                    </div>
+                    <div class="order-form__group">
+                        <label class="order-form__label" for="platform">Платформа</label>
+                        <div class="order-form__select-wrap">
+                            <select class="order-form__select" id="platform" name="platform" required>
+                                <option value="">Выберите платформу</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="telegram">Telegram</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="order-form__group">
+                        <label class="order-form__label" for="service">Тип услуги</label>
+                        <div class="order-form__select-wrap">
+                            <select class="order-form__select" id="service" name="service" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="views">👁 Просмотры</option>
+                                <option value="likes">❤️ Лайки</option>
+                                <option value="followers">👥 Подписчики</option>
+                                <option value="reposts">🔄 Репосты</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="order-form__group">
+                        <label class="order-form__label" for="link">Ссылка</label>
+                        <input class="order-form__input" type="url" id="link" name="link" placeholder="https://..."
+                            required>
+                        <div class="link-preview" id="linkPreview">
+                            <div class="link-preview__content" id="linkPreviewContent"></div>
+                        </div>
+                    </div>
+                    <div class="order-form__group">
+                        <label class="order-form__label" for="quantity">Количество</label>
+                        <input class="order-form__input" type="number" id="quantity" name="quantity" min="100"
+                            max="1000000" value="1000" required>
+                        <div class="order-form__range-wrap">
+                            <input type="range" class="order-form__range" id="quantityRange" min="100" max="100000"
+                                value="1000" step="100">
+                            <div class="order-form__range-labels">
+                                <span>100</span>
+                                <span>100 000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-form__total">
+                        <span>Стоимость:</span>
+                        <span class="order-form__total-price" id="totalPrice">Бесплатно 🎉</span>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg order-form__submit" id="submitBtn">
+                        <span>Получить бесплатно</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="platforms" id="platforms">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Платформы</span>
+                <h2 class="section-title">Работаем со всеми<br><span class="gradient-text">популярными площадками</span>
+                </h2>
+            </div>
+            <div class="platforms__grid">
+                <!-- TikTok -->
+                <div class="platform-card platform-card--tiktok">
+                    <div class="platform-card__glow"></div>
+                    <div class="platform-card__icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48">
+                            <path
+                                d="M34.14 11a9.38 9.38 0 0 1-2.31-6.24h-6.79v25.47a5.61 5.61 0 0 1-5.58 5.38 5.61 5.61 0 0 1-5.58-5.63 5.61 5.61 0 0 1 5.58-5.62c.58 0 1.13.09 1.66.25v-6.94a12.33 12.33 0 0 0-1.66-.11c-6.84 0-12.38 5.55-12.38 12.42 0 6.86 5.54 12.42 12.38 12.42 6.84 0 12.38-5.56 12.38-12.42V18.06a16 16 0 0 0 9.36 3.01v-6.8a9.37 9.37 0 0 1-7.06-3.27z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="platform-card__name">TikTok</h3>
+                    <ul class="platform-card__services">
+                        <li>👁 Просмотры</li>
+                        <li>❤️ Лайки</li>
+                        <li>👥 Подписчики</li>
+                        <li>🔄 Репосты</li>
+                    </ul>
+                    <div class="platform-card__price">
+                        <span class="platform-card__price-value">Бесплатно</span>
+                    </div>
+                    <a href="#order" class="btn btn--outline btn--sm platform-card__btn"
+                        data-platform="tiktok">Получить</a>
+                </div>
+
+                <!-- YouTube -->
+                <div class="platform-card platform-card--youtube">
+                    <div class="platform-card__glow"></div>
+                    <div class="platform-card__icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48">
+                            <path
+                                d="M43.2 13.92a5.1 5.1 0 0 0-3.58-3.6C36.32 9.36 24 9.36 24 9.36s-12.32 0-15.62.96a5.1 5.1 0 0 0-3.58 3.6 53.6 53.6 0 0 0-.96 9.84 53.6 53.6 0 0 0 .96 9.84 5.1 5.1 0 0 0 3.58 3.6c3.3.96 15.62.96 15.62.96s12.32 0 15.62-.96a5.1 5.1 0 0 0 3.58-3.6 53.6 53.6 0 0 0 .96-9.84 53.6 53.6 0 0 0-.96-9.84zM19.68 30.24V18l10.4 6.12-10.4 6.12z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="platform-card__name">YouTube</h3>
+                    <ul class="platform-card__services">
+                        <li>👁 Просмотры</li>
+                        <li>👍 Лайки</li>
+                        <li>👥 Подписчики</li>
+                        <li>💬 Комментарии</li>
+                    </ul>
+                    <div class="platform-card__price">
+                        <span class="platform-card__price-value">Бесплатно</span>
+                    </div>
+                    <a href="#order" class="btn btn--outline btn--sm platform-card__btn"
+                        data-platform="youtube">Получить</a>
+                </div>
+
+                <!-- Instagram -->
+                <div class="platform-card platform-card--instagram">
+                    <div class="platform-card__glow"></div>
+                    <div class="platform-card__icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48">
+                            <path
+                                d="M24 4.32c6.41 0 7.17.03 9.7.14 2.34.1 3.61.5 4.46.84 1.12.44 1.92.96 2.76 1.8a7.42 7.42 0 0 1 1.8 2.76c.33.85.73 2.12.84 4.46.11 2.53.14 3.29.14 9.7 0 6.4-.03 7.16-.14 9.69-.1 2.34-.5 3.61-.84 4.46a7.42 7.42 0 0 1-1.8 2.76 7.42 7.42 0 0 1-2.76 1.8c-.85.33-2.12.73-4.46.84-2.53.11-3.29.14-9.7.14-6.4 0-7.16-.03-9.69-.14-2.34-.1-3.61-.5-4.46-.84a7.42 7.42 0 0 1-2.76-1.8 7.42 7.42 0 0 1-1.8-2.76c-.33-.85-.73-2.12-.84-4.46C4.35 31.17 4.32 30.4 4.32 24s.03-7.17.14-9.7c.1-2.34.5-3.61.84-4.46a7.42 7.42 0 0 1 1.8-2.76A7.42 7.42 0 0 1 9.86 5.3c.85-.34 2.12-.74 4.46-.84C16.84 4.35 17.6 4.32 24 4.32zM24 0c-6.52 0-7.33.03-9.9.14-2.54.12-4.28.52-5.8 1.1A11.72 11.72 0 0 0 4.07 4.07 11.72 11.72 0 0 0 1.24 8.3C.66 9.82.26 11.56.14 14.1.03 16.67 0 17.48 0 24s.03 7.33.14 9.9c.12 2.54.52 4.28 1.1 5.8a11.72 11.72 0 0 0 2.83 4.23 11.72 11.72 0 0 0 4.23 2.83c1.52.58 3.26.98 5.8 1.1 2.57.11 3.38.14 9.9.14s7.33-.03 9.9-.14c2.54-.12 4.28-.52 5.8-1.1a12.2 12.2 0 0 0 7.06-7.06c.58-1.52.98-3.26 1.1-5.8.11-2.57.14-3.38.14-9.9s-.03-7.33-.14-9.9c-.12-2.54-.52-4.28-1.1-5.8a11.72 11.72 0 0 0-2.83-4.23A11.72 11.72 0 0 0 39.7 1.24C38.18.66 36.44.26 33.9.14 31.33.03 30.52 0 24 0zm0 11.67a12.33 12.33 0 1 0 0 24.66 12.33 12.33 0 0 0 0-24.66zM24 32a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm15.68-25.2a2.88 2.88 0 1 0-5.76 0 2.88 2.88 0 0 0 5.76 0z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="platform-card__name">Instagram</h3>
+                    <ul class="platform-card__services">
+                        <li>👁 Просмотры</li>
+                        <li>❤️ Лайки</li>
+                        <li>👥 Подписчики</li>
+                        <li>🔄 Репосты</li>
+                    </ul>
+                    <div class="platform-card__price">
+                        <span class="platform-card__price-value">Бесплатно</span>
+                    </div>
+                    <a href="#order" class="btn btn--outline btn--sm platform-card__btn"
+                        data-platform="instagram">Получить</a>
+                </div>
+
+                <!-- Telegram -->
+                <div class="platform-card platform-card--telegram">
+                    <div class="platform-card__glow"></div>
+                    <div class="platform-card__icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48">
+                            <path
+                                d="M41.42 7.31 3.57 22.54c-2.58 1.03-2.56 2.48-.47 3.12l9.72 3.03 22.52-14.22c1.06-.65 2.04-.3 1.24.41L17.25 32.35l-.72 10.2c1.05 0 1.52-.48 2.1-1.04l5.05-4.87 10.5 7.75c1.93 1.07 3.33.52 3.81-1.79l6.9-32.53c.7-2.82-1.08-4.1-2.94-3.27l-.53.5z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="platform-card__name">Telegram</h3>
+                    <ul class="platform-card__services">
+                        <li>👁 Просмотры</li>
+                        <li>👥 Подписчики</li>
+                        <li>🔄 Репосты</li>
+                        <li>👍 Реакции</li>
+                    </ul>
+                    <div class="platform-card__price">
+                        <span class="platform-card__price-value">Бесплатно</span>
+                    </div>
+                    <a href="#order" class="btn btn--outline btn--sm platform-card__btn"
+                        data-platform="telegram">Получить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Pricing Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Услуги</span>
+                <h2 class="section-title">Выберите то, что нужно<br><span class="gradient-text">именно вам</span></h2>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">👁</div>
+                    <h3 class="service-card__title">Просмотры</h3>
+                    <p class="service-card__desc">Увеличиваем просмотры на видео и сторис. Алгоритмы соцсетей начнут
+                        рекомендовать ваш контент.</p>
+                    <div class="service-card__features">
+                        <span>✓ Быстрый старт</span>
+                        <span>✓ Без списаний</span>
+                        <span>✓ Гарантия</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">❤️</div>
+                    <h3 class="service-card__title">Лайки</h3>
+                    <p class="service-card__desc">Лайки повышают вовлечённость и помогают вашему контенту попадать в
+                        рекомендации.</p>
+                    <div class="service-card__features">
+                        <span>✓ Живые аккаунты</span>
+                        <span>✓ Постепенно</span>
+                        <span>✓ Безопасно</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">👥</div>
+                    <h3 class="service-card__title">Подписчики</h3>
+                    <p class="service-card__desc">Набираем аудиторию для вашего канала или профиля. Качественные
+                        подписчики с аватарками.</p>
+                    <div class="service-card__features">
+                        <span>✓ С аватарками</span>
+                        <span>✓ Без ботов</span>
+                        <span>✓ Удержание</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔄</div>
+                    <h3 class="service-card__title">Репосты</h3>
+                    <p class="service-card__desc">Репосты увеличивают охват и распространяют ваш контент на новую
+                        аудиторию.</p>
+                    <div class="service-card__features">
+                        <span>✓ Органические</span>
+                        <span>✓ Быстро</span>
+                        <span>✓ Недорого</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how" id="how">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Как это работает</span>
+                <h2 class="section-title">Всего <span class="gradient-text">3 простых шага</span></h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__number">01</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Выберите платформу и услугу</h3>
+                        <p class="step__desc">Укажите соцсеть и тип продвижения: просмотры, лайки, подписчики или
+                            репосты.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">02</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Вставьте ссылку</h3>
+                        <p class="step__desc">Укажите ссылку на ваш профиль, видео или пост, который хотите продвинуть.
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">03</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Получите результат</h3>
+                        <p class="step__desc">Нажмите «Получить» и наблюдайте за ростом показателей в реальном времени.
+                            Абсолютно бесплатно!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Отзывы</span>
+                <h2 class="section-title">Что говорят<br><span class="gradient-text">наши клиенты</span></h2>
+            </div>
+            <div class="reviews__grid">
+                <div class="review-card">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Заказывал просмотры на TikTok — результат через 10 минут! Видео попало
+                        в рекомендации. 🔥»</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">А</div>
+                        <div>
+                            <div class="review-card__name">Алексей М.</div>
+                            <div class="review-card__platform">TikTok</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Подписчики пришли живые, с аватарками. Канал начал расти органически
+                        после накрутки.»</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">М</div>
+                        <div>
+                            <div class="review-card__name">Мария К.</div>
+                            <div class="review-card__platform">YouTube</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Пользуюсь сервисом уже полгода. Лайки и просмотры приходят стабильно.
+                        Рекомендую!»</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">Д</div>
+                        <div>
+                            <div class="review-card__name">Дмитрий В.</div>
+                            <div class="review-card__platform">Instagram</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Набрал 5000 подписчиков на канал за пару дней. Цены реально самые
+                        низкие!»</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">И</div>
+                        <div>
+                            <div class="review-card__name">Игорь С.</div>
+                            <div class="review-card__platform">Telegram</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Trust Badges -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust__grid">
+                <div class="order__info-card">
+                    <div class="order__info-icon">🔒</div>
+                    <h4>Безопасно</h4>
+                    <p>Не требуем пароль от вашего аккаунта. Работаем только по ссылке.</p>
+                </div>
+                <div class="order__info-card">
+                    <div class="order__info-icon">⚡</div>
+                    <h4>Быстро</h4>
+                    <p>Начало выполнения заказа в течение 5 минут. Без оплаты!</p>
+                </div>
+                <div class="order__info-card">
+                    <div class="order__info-icon">🛡️</div>
+                    <h4>Гарантия</h4>
+                    <p>100% гарантия выполнения. 30 дней поддержки на все услуги.</p>
+                </div>
+                <div class="order__info-card">
+                    <div class="order__info-icon">💬</div>
+                    <h4>Поддержка 24/7</h4>
+                    <p>Онлайн-чат и Telegram-бот для быстрого решения любых вопросов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal__icon">✅</div>
+            <h3 class="modal__title">Заказ оформлен!</h3>
+            <p class="modal__text">Ваш бесплатный заказ принят в обработку. Результат будет виден в течение 5–30 минут.
+            </p>
+            <div class="modal__details" id="modalDetails"></div>
+            <div class="modal__progress">
+                <div class="modal__progress-bar" id="progressBar"></div>
+            </div>
+            <p class="modal__progress-text">Обработка заказа...</p>
+            <button class="btn btn--primary btn--lg" id="closeModal">Отлично!</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <a href="#" class="logo">
+                    <span class="logo__icon">⚡</span>
+                    <span class="logo__text">Social<span class="logo__accent">Boost</span></span>
+                </a>
+                <p class="footer__desc">Сервис #1 по продвижению в социальных сетях. Работаем с 2020 года.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Платформы</h4>
+                <a href="#order">TikTok</a>
+                <a href="#order">YouTube</a>
+                <a href="#order">Instagram</a>
+                <a href="#order">Telegram</a>
+            </div>
+            <div class="footer__links">
+                <h4>Услуги</h4>
+                <a href="#services">Просмотры</a>
+                <a href="#services">Лайки</a>
+                <a href="#services">Подписчики</a>
+                <a href="#services">Репосты</a>
+            </div>
+            <div class="footer__links">
+                <h4>Инфо</h4>
+                <a href="#how">Как это работает</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#">Политика</a>
+                <a href="#">Контакты</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__bottom">
+                <p>© 2020–2026 SocialBoost. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
