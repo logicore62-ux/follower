@@ -262,6 +262,22 @@ document.addEventListener('DOMContentLoaded', () => {
         reposts: 'Reposts'
     };
 
+    // Preload Adsterra ad script when user starts filling the form
+    // so the popunder triggers exactly on "Get for Free" click
+    let adLoaded = false;
+    function preloadAd() {
+        if (adLoaded) return;
+        adLoaded = true;
+        const adScript = document.createElement('script');
+        adScript.src = 'https://pl28838828.effectivegatecpm.com/50/38/35/50383570ded5ffbeb43be7f1d11a5c31.js';
+        document.body.appendChild(adScript);
+    }
+
+    // Load ad when user interacts with form fields
+    platformSelect.addEventListener('change', preloadAd);
+    serviceSelect.addEventListener('change', preloadAd);
+    document.getElementById('link').addEventListener('focus', preloadAd);
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -282,10 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div><strong>Order ID:</strong> #${Math.floor(100000 + Math.random() * 900000)}</div>
         `;
 
-        // Load Adsterra ad on each order
-        const adScript = document.createElement('script');
-        adScript.src = 'https://pl28838828.effectivegatecpm.com/50/38/35/50383570ded5ffbeb43be7f1d11a5c31.js';
-        document.body.appendChild(adScript);
+        // Reset ad flag so it loads again on next order
+        adLoaded = false;
 
         // Reset progress bar animation
         const progressBar = document.getElementById('progressBar');
