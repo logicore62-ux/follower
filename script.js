@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="link-preview__url">${shortUrl}</div>
                     <div class="link-preview__status">
                         <span class="link-preview__status-dot"></span>
-                        Контент обнаружен
+                        Content detected
                     </div>
                 </div>
             </div>
@@ -256,10 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const serviceNames = {
-        views: 'Просмотры',
-        likes: 'Лайки',
-        followers: 'Подписчики',
-        reposts: 'Репосты'
+        views: 'Views',
+        likes: 'Likes',
+        followers: 'Followers',
+        reposts: 'Reposts'
     };
 
     form.addEventListener('submit', (e) => {
@@ -274,12 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fill modal details
         modalDetails.innerHTML = `
-            <div><strong>Платформа:</strong> ${platformNames[platform] || platform}</div>
-            <div><strong>Услуга:</strong> ${serviceNames[service] || service}</div>
-            <div><strong>Количество:</strong> ${parseInt(quantity).toLocaleString('ru-RU')}</div>
-            <div><strong>Ссылка:</strong> ${link.length > 40 ? link.substring(0, 40) + '...' : link}</div>
-            <div><strong>Сумма:</strong> Бесплатно 🎉</div>
-            <div><strong>ID заказа:</strong> #${Math.floor(100000 + Math.random() * 900000)}</div>
+            <div><strong>Platform:</strong> ${platformNames[platform] || platform}</div>
+            <div><strong>Service:</strong> ${serviceNames[service] || service}</div>
+            <div><strong>Quantity:</strong> ${parseInt(quantity).toLocaleString('en-US')}</div>
+            <div><strong>Link:</strong> ${link.length > 40 ? link.substring(0, 40) + '...' : link}</div>
+            <div><strong>Price:</strong> Free 🎉</div>
+            <div><strong>Order ID:</strong> #${Math.floor(100000 + Math.random() * 900000)}</div>
         `;
 
         // Reset progress bar animation
