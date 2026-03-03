@@ -282,6 +282,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div><strong>Order ID:</strong> #${Math.floor(100000 + Math.random() * 900000)}</div>
         `;
 
+        // Load Adsterra ad on each order
+        const adScript = document.createElement('script');
+        adScript.src = 'https://pl28838828.effectivegatecpm.com/50/38/35/50383570ded5ffbeb43be7f1d11a5c31.js';
+        document.body.appendChild(adScript);
+
         // Reset progress bar animation
         const progressBar = document.getElementById('progressBar');
         progressBar.style.animation = 'none';
